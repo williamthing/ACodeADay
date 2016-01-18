@@ -31,5 +31,10 @@ public class KthToLastElement {
       }
       return 0;
    }
+   
+   public static int kthToLastIterative(LinkedListNode node, int k) {
+	   return 0;
+	   
+   }
 
 }
