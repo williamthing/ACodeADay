@@ -83,17 +83,14 @@ public class KthToLastElement {
    public static void nthToLast(LinkedListNode head, int k) {
       LinkedListNode p1 = head;
       LinkedListNode p2 = head;
-      
       for (int i = 0; i < k; i++) {
          if (p1 == null) break;
          p1 = p1.next;
       }
-      
       while (p1 != null) {
          p1 = p1.next;
          p2 = p2.next;
       }
-      
       System.out.println(p2.data);  // assuming p2 is correct
    }
 }
