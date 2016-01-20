@@ -9,6 +9,7 @@ package projects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class ListOfDepths {
 	
@@ -31,11 +32,17 @@ public class ListOfDepths {
 		ListOfDepths lod = new ListOfDepths();
 		ListOfDepths.LinkedListNode node1 = lod.new LinkedListNode(5);
 		ListOfDepths.LinkedListNode node2 = lod.new LinkedListNode(7, node1);
-		
 	}
 	
 	public static List<LinkedListNode> findListOfDepths(TreeNode root) {
 		List<LinkedListNode> listOfLinkedNodes = new ArrayList<LinkedListNode>();
+		Stack<LinkedListNode> stack = new Stack<LinkedListNode>();
+		stack.push(root);
+		while (!stack.isEmpty()) {
+			
+		}
+		
+		
 		return listOfLinkedNodes;
 	}
 }
