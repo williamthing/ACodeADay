@@ -14,8 +14,6 @@ public class SwapLinkedList {
 		printList(front);
 		//front = swapNodes(front, 3, 4);
 		//printList(front);
-		
-
 	}
 	
 	// given solutions online
