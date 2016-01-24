@@ -52,5 +52,4 @@ public class MedianOfTwoArrays {
 		}
 		return (median + next) / 2;
 	}
-
 }

@@ -10,10 +10,54 @@ public class SwapLinkedList {
 			current = current.next;
 		}
 		printList(front);
-		front = swapNodes(front, 3, 4);
+		front = swapTwoNodes(front, 3, 4);
 		printList(front);
-		//front = swapNodes(front, 3, 4);
-		//printList(front);
+		front = swapTwoNodes(front, 3, 4);
+		printList(front);
+		front = swapTwoNodes(front, 0, 1);
+		printList(front);
+		
+	}
+	
+	//	pre: 	saw a very good online solution compared to my old one, coded a new solution
+	//	post:	swaps given ints in the linkedlist, if not found then does nothing to the
+	//			given list.
+	public static LinkedListNode swapTwoNodes(LinkedListNode front, int x, int y) {
+		if (x == y) 
+			return front;
+		LinkedListNode prevX = null;
+		LinkedListNode currX = front;
+		while (currX != null && currX.data != x) {
+			prevX = currX;
+			currX = currX.next;
+		}
+		LinkedListNode prevY = null;
+		LinkedListNode currY = front;
+		while (currY != null && currY.data != y) {
+			prevY = currY;
+			currY = currY.next;
+		}
+		// int x or y was not found, so nothing to swap
+		if (currX == null || currY == null) {
+			return front;
+		}
+		// int x is the head, then point head to Y
+		if (prevX == null) {
+			front = currY;
+		} else {
+			prevX.next = currY;
+		}
+		// int y is the head, then point head to X
+		if (prevY == null) {
+			front = currX;
+		} else {
+			prevY.next = currX;
+		}
+		// swap references
+		LinkedListNode tmp = currY.next;
+		currY.next = currX.next;
+		currX.next = tmp;
+		return front;
 	}
 	
 	// given solutions online
@@ -66,6 +110,7 @@ public class SwapLinkedList {
 	//	pre: 	assuming that we are swapping the first n and m we see
 	//			that n and m are not side by side and not first element in the list
 	//	post:	swapping 
+	//	note:	Realized that my solution only covers one of several cases
 	public static LinkedListNode swap(LinkedListNode front, int n, int m) {
 		boolean nFound = false;
 		LinkedListNode current = front;

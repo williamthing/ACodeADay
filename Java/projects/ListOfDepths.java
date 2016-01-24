@@ -8,8 +8,9 @@
 package projects;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
 
 public class ListOfDepths {
 	
@@ -36,10 +37,12 @@ public class ListOfDepths {
 	
 	public static List<LinkedListNode> findListOfDepths(TreeNode root) {
 		List<LinkedListNode> listOfLinkedNodes = new ArrayList<LinkedListNode>();
-		Stack<LinkedListNode> stack = new Stack<LinkedListNode>();
-		stack.push(root);
-		while (!stack.isEmpty()) {
-			
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		int prevSize = q.size();
+		LinkedListNode first = new LinkedListNode();
+		while (!q.isEmpty()) {
+	
 		}
 		
 		
