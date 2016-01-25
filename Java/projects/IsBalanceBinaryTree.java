@@ -41,8 +41,12 @@ public class IsBalanceBinaryTree {
 		System.out.println(isBalanceBinaryTree(root1)); // true
 		System.out.println(isBalanced(root1));
 		root1.left.left.right = new TreeNode(2);
+		long StartTime = System.nanoTime();
 		System.out.println(isBalanceBinaryTree(root1)); // false
+		long endTime = System.nanoTime();
 		System.out.println(isBalanced(root1));	
+		
+		// Comparing the two methods, they are the same output.
 	}
 	
 	// 	Online solution
