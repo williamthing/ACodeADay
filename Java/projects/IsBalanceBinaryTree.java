@@ -1,5 +1,5 @@
 /*	William Thing
- * 
+ *	
  * Given a binary tree, determine if it is height-balanced.
 
 For this problem, a height-balanced binary tree is defined as 
@@ -12,13 +12,13 @@ package projects;
 public class IsBalanceBinaryTree {
 	
 	public static void main(String[] arg) {
-		System.out.println("///////////////////////////////////////");
+		System.out.println("/////////////////");
 		System.out.println("Top down method");
-		System.out.println("///////////////////////////////////////");
+		System.out.println("/////////////////");
 		
-		System.out.println("///////////////////////////////////////");
+		System.out.println("/////////////////");
 		System.out.println("Bottom up method");
-		System.out.println("///////////////////////////////////////");
+		System.out.println("/////////////////");
 		
 		TreeNode root = new TreeNode(10);
 		root.left = new TreeNode(11);
@@ -41,10 +41,16 @@ public class IsBalanceBinaryTree {
 		System.out.println(isBalanceBinaryTree(root1)); // true
 		System.out.println(isBalanced(root1));
 		root1.left.left.right = new TreeNode(2);
-		long StartTime = System.nanoTime();
+		
+		long startTime = System.nanoTime();
 		System.out.println(isBalanceBinaryTree(root1)); // false
 		long endTime = System.nanoTime();
+		System.out.println((endTime-startTime) / Math.pow(10, 6));
+		
+		startTime = System.nanoTime();
 		System.out.println(isBalanced(root1));	
+		endTime = System.nanoTime();
+		System.out.println((endTime-startTime) / Math.pow(10, 6));
 		
 		// Comparing the two methods, they are the same output.
 	}
