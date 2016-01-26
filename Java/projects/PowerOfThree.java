@@ -17,8 +17,6 @@ public class PowerOfThree {
 		for (int i = 0; i < 10; i++) {
 			nums.add((int)Math.pow(3, i));
 		}
-		
-		
 		for (int num : nums)
 			System.out.println(isPowerOfThree(num));
 	}
@@ -33,6 +31,4 @@ public class PowerOfThree {
 	    }
 	    return false;
 	}
-	
-
 }
