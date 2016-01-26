@@ -36,8 +36,11 @@ import java.util.Map;
 public class BullsAndCows {
 	
 	public static void main(String[] arg) {
-		String result = getHint("1807", "7810");
-		System.out.println(result);
+		//	TEST CASES
+		System.out.println(getHint("1123", "0111"));	// 1A1B
+		System.out.println(getHint("1807", "7810"));	// 1A3B
+		System.out.println(getHint("1234", "0111"));	// 0A1B
+		System.out.println(getHint("1111", "1111"));	// 4A0B
 		
 	}
 	
@@ -45,20 +48,28 @@ public class BullsAndCows {
 	// post: 	takes given secret and guess string and compares to
 	//			present count of bulls and cows
 	public static String getHint(String secret, String guess) {
-        Map<Character, Integer> cows = new HashMap<Character, Integer>();
+        Map<Character, Integer> secrets = new HashMap<Character, Integer>();
+        Map<Character, Integer> guesses = new HashMap<Character, Integer>();
         int i = 0;
         int bulls = 0;
+        int cows = 0;
         while (i < secret.length()) {
         	if (secret.charAt(i) == guess.charAt(i)) {
         		bulls++;
         	} else { 
-        		trackCows(cows, secret.charAt(i));
-        		trackCows(cows, guess.charAt(i));
+        		trackCows(secrets, secret.charAt(i));
+        		trackCows(guesses, guess.charAt(i));
         	}
         	i++;
         }
-        return bulls + "A" + countCows(cows) + "B";
-    
+        
+        for (char key : secrets.keySet()) {
+        	if (guesses.containsKey(key)) {
+        		cows += Math.min(secrets.get(key), guesses.get(key));
+        	}
+        }
+        
+        return bulls + "A" + cows + "B";
 	}
 	
 	//	keeps track of the digits in guesses and secrets, if they are not bulls
@@ -70,10 +81,11 @@ public class BullsAndCows {
 		}
 	}
 	
+	//	counts the number of cows
 	private static int countCows(Map<Character, Integer> cows) {
 		int count = 0;
 		for (char key : cows.keySet()) {
-			if (cows.get(key) > 1) count++;
+			if (cows.get(key) > 1) count += cows.get(key) / 2;
 		}
 		return count;
 	}
