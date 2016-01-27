@@ -81,13 +81,22 @@ public class BullsAndCows {
 		}
 	}
 	
-	//	counts the number of cows
-	private static int countCows(Map<Character, Integer> cows) {
-		int count = 0;
-		for (char key : cows.keySet()) {
-			if (cows.get(key) > 1) count += cows.get(key) / 2;
-		}
-		return count;
+	public static String cowsAndBulls(String secret, String guess) {
+	    int bull = 0;
+	    int cow = 0;
+	    int[] s = new int[10];
+	    int[] g = new int[10];
+	    for(int i = 0; i < secret.length(); i++) {
+	    	if(secret.charAt(i) == guess.charAt(i)) bull++;
+	    }
+	    for(int i = 0; i < secret.length(); i++) {
+	    	s[secret.charAt(i) - 48]++;
+	    	g[guess.charAt(i) - 48]++;
+	    }
+	    for(int i = 0; i < 10; i++) {
+	    	cow += Math.min(s[i],g[i]);
+	    }
+	    cow -= bull;
+	    return bull + "A" + cow + "B";
 	}
-
 }
