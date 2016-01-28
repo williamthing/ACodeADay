@@ -34,41 +34,40 @@ public class removeDuplicates {
 		
 	}
 	
-	public static int removeDup(int[] sortedA) {
-		int runner = 0;
-		int newLen = 0;
-		for (int i = 0; i < sortedA.length; i++) {
-			if (runner == sortedA.length - 1) {
-				System.out.println("HELLO");
-				break;
-			}
-			while (runner < sortedA.length && sortedA[i] == sortedA[runner]) {
-				runner++;
-			}
-			System.out.println("TEST " + runner);
-			if (i >= sortedA.length) {
-				break;
-			}
-			i++;
-			sortedA[i] = sortedA[runner];
-			newLen = i;
-			
+	//	pre: assume given array is sorted
+	//	post: removes all duplicates from array and gives new size from removing them.
+	//		  previous data may still exist but the length is given to ignore them if
+	//		  new len < previous data
+	public static int removeDuplicates(int[] a) {
+		int size = a.length;
+		if (size <= 1) return size;
+		if (size == 2) {
+			if (a[0] == a[1]) return 1;
+			else return 2;
 		}
-		return newLen;
+		int prev = 0;
+		int curr = 1;
+		int runner = 1;
+		while (runner < size) {
+			if (a[prev] != a[runner]) {
+				a[curr] = a[runner];
+				prev++;
+				curr++;
+			}
+			runner++;
+		}
+		return curr;
 	}
 	
-	public static int removeDuplicates(int[] a) {
-		int runner = 1;
-		for (int i = 1; i < a.length; i++) {
-			while (a[i-1] == a[runner]) {
-				runner++;
-			}
-			a[i] = a[runner];
-			runner++;
-			if (runner >= a.length) {
-				return i+1;
-			}
-		}
-		return a.length;
-	}
+	//	solution found online
+    public static int removeDuplicates2(int[] nums) {
+        //if (nums.length <= 1) { return 1; }
+        int index = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[index] != nums[i]) {
+                nums[++index] = nums[i];
+            }
+        }
+        return index+1;
+    }
 }
