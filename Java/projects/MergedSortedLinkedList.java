@@ -22,11 +22,8 @@ public class MergedSortedLinkedList {
 		
 		printList(list1);
 		printList(list2);
-		
 		LinkedListNode result = mergeSortedList(list1, list2);
-		
 		printList(result);
-		
 	}
 	
 	//	merging two given sorted linkedlist
