@@ -28,7 +28,16 @@ public class removeDuplicates {
 		int[][] arr = {a1, a2, a3, a4};
 		
 		for (int[] a : arr) {
+			long startTime = System.nanoTime();
 			System.out.println(removeDuplicates(a));
+			long endTime = System.nanoTime();
+			System.out.println((endTime - startTime) / Math.pow(10, 6));
+			
+			
+			startTime = System.nanoTime();
+			System.out.println(removeDuplicates2(a));
+			endTime = System.nanoTime();
+			System.out.println((endTime - startTime) / Math.pow(10, 6));
 		}
 
 		
@@ -60,8 +69,9 @@ public class removeDuplicates {
 	}
 	
 	//	solution found online
+	// 	does not seem correct
     public static int removeDuplicates2(int[] nums) {
-        //if (nums.length <= 1) { return 1; }
+        if (nums.length <= 1) { return 1; }
         int index = 0;
         for (int i = 1; i < nums.length; i++) {
             if (nums[index] != nums[i]) {
