@@ -27,6 +27,7 @@ public class ReverseBits {
 	
 	public static int reverseBits(int n) {
 		Stack<Integer> s = new Stack<Integer>();
+		int neg = 0;
 		for (int i = 0; i < 32; i++) {
 			int bit = n & 1;
 			s.push(bit);
@@ -36,7 +37,11 @@ public class ReverseBits {
 		int result = 0;
 		int j = 0;
 		while (!s.isEmpty()) {
-			result += s.pop() * (int)Math.pow(2, j);
+			int tmp = s.pop();
+			result += tmp * (int)Math.pow(2, j);
+			if (j == 31 && tmp == 1) {
+				result = (result+1) * -1;
+			}
 			j++;
 		}
 		return result;
