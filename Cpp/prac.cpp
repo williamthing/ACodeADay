@@ -22,6 +22,7 @@ class Student : public Person {
 
 int main() {
     Student * p = new Student();
+    (*p).aboutMe();
     p->aboutMe();
     delete p;
     return 0;
