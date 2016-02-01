@@ -9,5 +9,4 @@ public class GraphNode {
 		this.data = n;
 		this.visited = false;
 	}
-
 }
