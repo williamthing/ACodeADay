@@ -118,6 +118,5 @@ public class SymmetricTree {
 	    else{
 	        return false;
 	    }
-
 	}
 }
