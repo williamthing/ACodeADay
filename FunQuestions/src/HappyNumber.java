@@ -15,9 +15,11 @@ import java.util.Arrays;
 public class HappyNumber {
 	public static void main(String[] arg) {
 		System.out.println(isHappyNumber(19));
-		
 	}
 	
+	// Returns true if a happy number is found, else false if it will never reach 1
+	// and continue in an infinite loop (cycle is found by a result counter, reaching over 1
+	// means there is a cycle/repeat)
 	public static boolean isHappyNumber(int n) {
 		if (n == 1) return true;
 		int[] a = new int[810];
