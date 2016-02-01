@@ -36,6 +36,7 @@ public class SymmetricTree {
 		System.out.println(isSym(head));
 	}
 	
+	//	recursive method checking if a binary tree is symmetric or not
 	public static boolean isSym(TreeNode root) {
 		if (root == null) return true;
 		return isSym(root, root);
@@ -91,5 +92,32 @@ public class SymmetricTree {
 			if (l.get(i) != l.get(l.size() - 1 - i)) return false;
 		}
 		return true;
+	}
+	
+	// recursive solution found online, similiar to mine, but doesnt recursive through the whole tree
+	// all the time, only when necessary, and return false immediately when a unsymmetric case is found
+	public static boolean isSymmetric2(TreeNode root) {
+	    if(root==null){
+	        return true;
+	    }else {
+	        return mirror(root.left, root.right);
+	    }
+	}
+	
+	public static boolean mirror(TreeNode l1, TreeNode l2){
+	    if(l1!=null && l2!=null){
+	        if(l1.data == l2.data){
+	            return mirror(l1.left,l2.right) && mirror(l1.right,l2.left);
+	        }
+
+	        return false;
+	    }
+	    else if(l1==null && l2 == null){
+	        return true;
+	    }
+	    else{
+	        return false;
+	    }
+
 	}
 }
