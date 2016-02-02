@@ -1,4 +1,4 @@
-/*
+/* William Thing
  * Given a binary tree, return the bottom-up level order traversal 
  * of its nodes' values. (ie, from left to right, level by level 
  * from leaf to root).
@@ -36,7 +36,6 @@ public class BTLevelOrder2 {
 		levelOrder(head, a);
 		reverseList(a);
 		System.out.println(a);
-		
 	}
 	
 	public static void levelOrder(TreeNode root, ArrayList<ArrayList<Integer>> result) {
@@ -44,7 +43,6 @@ public class BTLevelOrder2 {
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(root);
 		int prevSize = q.size();
-		
 		while (!q.isEmpty()) {
 			TreeNode temp = q.remove();
 			prevSize--;
@@ -68,8 +66,4 @@ public class BTLevelOrder2 {
 			a.set(a.size() - 1 - i, temp);
 		}
 	}
-	
-	
-	
-
 }
