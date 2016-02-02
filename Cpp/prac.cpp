@@ -7,10 +7,12 @@ class Person {
     int id;
     char name[NAME_SIZE];
 
-public:
-    void aboutMe() {
-        cout << "I am a person." << endl;
-    }
+    public:
+        void aboutMe() {
+            cout << "I am a person." << endl;
+        }
+
+        virtual bool addCourse(string s) = 0;
 };
 
 class Student : public Person {
@@ -18,12 +20,18 @@ class Student : public Person {
         void aboutMe() {
             cout << "I am a student." << endl;
         }
+
+        bool addCourse(string s) {
+            cout << "adding course " << s << " to student." << endl;
+            return true;
+        }
 };
 
 int main() {
     Student * p = new Student();
     (*p).aboutMe();
     p->aboutMe();
+    p->addCourse("Computer Science 101");
     delete p;
     return 0;
 }
