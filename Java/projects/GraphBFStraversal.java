@@ -30,6 +30,7 @@ public class GraphBFStraversal {
 		temp3.path.add(temp8);
 		temp4.path.add(temp8);
 		temp4.path.add(temp9);
+		temp5.path.add(new GraphNode(10));
 		temp9.path.add(head);
 		
 		BFS(head);
