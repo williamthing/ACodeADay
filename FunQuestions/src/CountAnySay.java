@@ -13,8 +13,9 @@ Note: The sequence of integers will be represented as a string.
 public class CountAnySay {
 
 	public static void main(String[] arg) {
-		int n = 1111;
+		int n = 1111444;
 		System.out.println(countAnySay(n));
+		System.out.println(countAnySay(1));
 	}
 	
 	public static String countAnySay(int n) {
