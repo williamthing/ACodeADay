@@ -18,7 +18,8 @@ public class RemoveNthFromEnd {
 		head.next.next.next = new LinkedListNode(4);
 		head.next.next.next.next = new LinkedListNode(5);
 		printList(head);
-		head = removeNthFromEnd(head, 2);
+		head = removeElement(head, 2);
+		//head = removeNthFromEnd(head, 2);
 		printList(head);
 	}
 	
@@ -40,6 +41,29 @@ public class RemoveNthFromEnd {
 		if (prev == null) return head.next;
 		prev.next = prev.next.next;
 		return head;	
+	}
+	
+	public static LinkedListNode removeElement(LinkedListNode head, int n) {
+		LinkedListNode prev = null;
+		removeElement(head, prev, n+1);
+		if (prev == null) {
+			System.out.println("HI"); 
+			return head.next;
+		}
+		prev.next = prev.next.next;
+		return head;
+	}
+	
+	private static int removeElement(LinkedListNode current, LinkedListNode prev, int n) {
+		if (current == null) {
+			return 0;
+		}
+		int k = removeElement(current.next, prev, n) + 1;
+		if (k == n) {
+			System.out.println("HELLO");
+			prev = current;
+		}
+		return k;
 	}
 	
 	public static void printList(LinkedListNode head) {
