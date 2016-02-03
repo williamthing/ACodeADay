@@ -50,9 +50,9 @@ public class ValidWordAbbr {
 	public boolean isUnique(String word) {
 		String abbr = convertToAbbr(word);
 		for (String s : abbrDict) {
-			if (s == abbr) return true;
+			if (s.equals(abbr)) return false;
 		}
-		return false;
+		return true;
 	}
 	
 	public String convertToAbbr(String word) {
