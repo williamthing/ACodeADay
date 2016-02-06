@@ -11,19 +11,26 @@ Note:
 You may assume that the array does not change.
 There are many calls to sumRange function.
 */
+import java.util.HashMap;
+import java.util.Map;
 
 public class NumArray {
-	int[][] numArray;
+	private int[] numArray;
+	private Map<Integer, Integer> sums;
 
     public NumArray(int[] nums) {
         int size = nums.length;
-        numArray = new int[size][size];
+        numArray = new int[size];
+        sums = new HashMap<Integer, Integer>();
         for (int i = 0; i < size; i++) {
-        	numArray[i][i] = nums[i];
+        	numArray[i] = nums[i];
         }
+
     }
 
     public int sumRange(int i, int j) {
+        if (i == j) return sums.get(i+j);
         return 0;
+        
     }
 }
