@@ -24,8 +24,8 @@ import java.util.Map;
 public class IsomorphicStrings {
 	
 	public static void main(String[] arg) {
-		String[] sTest = {"egg", "foo", "paper"};
-		String[] tTest = {"add", "bar", "title"};
+		String[] sTest = {"egg", "foo", "paper", "aa", "ab"};
+		String[] tTest = {"add", "bar", "title", "ab", "aa"};
 		for (int i = 0; i < sTest.length; i++) {
 			System.out.println(isIsomorphic(sTest[i], tTest[i]));
 		}	
@@ -33,16 +33,18 @@ public class IsomorphicStrings {
 	
 	public static boolean isIsomorphic(String s, String t) {
 		if (s.length() != t.length()) return false;
-		Map<Character, Character> isomorphicPair = new HashMap<Character, Character>();
+		Map<Character, Character> isomorphicPair1 = new HashMap<Character, Character>();
+		Map<Character, Character> isomorphicPair2 = new HashMap<Character, Character>();
 		char[] charArray = s.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
-			if (!isomorphicPair.containsKey(charArray[i])) {
-				isomorphicPair.put(charArray[i], t.charAt(i));
+			if (!isomorphicPair1.containsKey(charArray[i]) && !isomorphicPair2.containsKey(t.charAt(i))) {
+				isomorphicPair1.put(charArray[i], t.charAt(i));
+				isomorphicPair2.put(t.charAt(i), charArray[i]);
 			} else {
-				if (isomorphicPair.get(charArray[i]) != t.charAt(i)) return false;
+				if (isomorphicPair1.get(charArray[i]) != t.charAt(i)) return false;
+				if (isomorphicPair2.get(t.charAt(i)) != charArray[i]) return false;
 			}
 		}
 		return true;
 	}
-
 }
