@@ -26,7 +26,7 @@ public class RotateArray {
     	if (nums == null || nums.length == 1 || k == 0 || k >= nums.length) return;
     	int i = k, j = 0, tmp;
         do {
-        	System.out.println(i + " " + j);       	
+        	System.out.println(i + " " + j);
         	tmp = nums[i];
         	nums[i++] = nums[j];
         	nums[j++] = tmp;
