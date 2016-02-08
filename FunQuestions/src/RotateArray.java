@@ -14,24 +14,24 @@ at least 3 different ways to solve this problem.
 public class RotateArray {
 
 	public static void main(String[] arg) {
-		int[] arr = {1, 2, 3, 4, 5, 6, 7};
-		rotate(arr, 3);
+		//int[] arr = {1, 2, 3, 4, 5, 6, 7};
+		int[] arr = {1, 2};
+		rotate(arr, 2);
 		for (int n : arr) {
 			System.out.print(n);
 		}
 	}
 	
     public static void rotate(int[] nums, int k) {
+    	if (nums == null || nums.length == 1 || k == 0 || k >= nums.length) return;
     	int i = k, j = 0, tmp;
-    	
         do {
-        	System.out.println(i + " " + j);
+        	System.out.println(i + " " + j);       	
         	tmp = nums[i];
         	nums[i++] = nums[j];
         	nums[j++] = tmp;
         	if (i == nums.length) i = 0;
-        	if (j == k) j = 0;
-
-        } while (i != k);
+        	if (j >= k) j = 0;
+        } while (i != k-1);
     }
 }
