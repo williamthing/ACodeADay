@@ -37,10 +37,14 @@ public class IsomorphicStrings {
 		Map<Character, Character> isomorphicPair2 = new HashMap<Character, Character>();
 		char[] charArray = s.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
-			if (!isomorphicPair1.containsKey(charArray[i]) && !isomorphicPair2.containsKey(t.charAt(i))) {
+			if (!isomorphicPair1.containsKey(charArray[i])) {
+				// s char is not found yet, but t char is linked already
+				if (isomorphicPair2.containsKey(t.charAt(i))) return false;
 				isomorphicPair1.put(charArray[i], t.charAt(i));
 				isomorphicPair2.put(t.charAt(i), charArray[i]);
 			} else {
+				// s char is found, but t char not found yet then linked to another or same
+				if (!isomorphicPair2.containsKey(t.charAt(i))) return false;
 				if (isomorphicPair1.get(charArray[i]) != t.charAt(i)) return false;
 				if (isomorphicPair2.get(t.charAt(i)) != charArray[i]) return false;
 			}
