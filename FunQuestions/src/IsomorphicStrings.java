@@ -24,8 +24,11 @@ import java.util.Map;
 public class IsomorphicStrings {
 	
 	public static void main(String[] arg) {
-		
-		
+		String[] sTest = {"egg", "foo", "paper"};
+		String[] tTest = {"add", "bar", "title"};
+		for (int i = 0; i < sTest.length; i++) {
+			System.out.println(isIsomorphic(sTest[i], tTest[i]));
+		}	
 	}
 	
 	public static boolean isIsomorphic(String s, String t) {
@@ -36,7 +39,7 @@ public class IsomorphicStrings {
 			if (!isomorphicPair.containsKey(charArray[i])) {
 				isomorphicPair.put(charArray[i], t.charAt(i));
 			} else {
-				if (isomorphicPair.get(charArray[i]) != s.charAt(i)) return false;
+				if (isomorphicPair.get(charArray[i]) != t.charAt(i)) return false;
 			}
 		}
 		return true;
