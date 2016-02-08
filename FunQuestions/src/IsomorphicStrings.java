@@ -51,4 +51,25 @@ public class IsomorphicStrings {
 		}
 		return true;
 	}
+	
+	// after solving problem, found a more concise and better solution to problem
+	public static boolean isIsomorphic2(String s, String t) {
+	    if (s == null || t == null || s.length() != t.length())
+	        return false;
+
+	    HashMap<Character, Character> h = new HashMap<>();
+	    int N = s.length();
+
+	    for (int i = 0; i < N; i++) {
+	        if (h.containsKey(s.charAt(i))) {
+	            char c = h.get(s.charAt(i));
+	            if (c != t.charAt(i)) return false;
+	        } else {
+	            if (h.containsValue(t.charAt(i))) return false;
+	            h.put(s.charAt(i), t.charAt(i));
+	        }
+	    }
+
+	    return true;
+	}
 }
