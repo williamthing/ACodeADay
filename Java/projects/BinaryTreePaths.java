@@ -30,8 +30,8 @@ public class BinaryTreePaths {
 	}
 	
 	public static List<String> binaryTreePaths(TreeNode root) {
-        if (root == null) return null;
         List<String> list = new ArrayList<String>();
+        if (root == null) return null;
         String path = "" + root.data;
         pathHelper(root, list, path);
         return list;
@@ -44,6 +44,6 @@ public class BinaryTreePaths {
 			return;
 		}
 		if (root.left != null) pathHelper(root.left, list, s + "->" + root.left.data);
-		if (root.left != null) pathHelper(root.right, list, s + "->" + root.right.data);
+		if (root.right != null) pathHelper(root.right, list, s + "->" + root.right.data);
 	}
 }
