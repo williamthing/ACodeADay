@@ -35,6 +35,7 @@ public class AddBinary {
 		}
 		
 		while (len1 >= 0) {
+			System.out.println("TROUBLE HERE");
 			result = a.charAt(len1) - '0' + carryOut;
 			System.out.println(result);
 			if (result > 1) {
@@ -48,6 +49,7 @@ public class AddBinary {
 		}
 		
 		while (len2 >= 0) {
+			System.out.println("TROUBLE HERE 2!!!");
 			result = a.charAt(len2) - '0' + carryOut;
 			System.out.println(result);
 			if (result > 1) {
