@@ -1,6 +1,8 @@
 /* William Thing
  * 
  * String Calculator
+ * 
+ * not following PEMDAS, calculates values first seen from left to right
  */
 public class StringCalculator {
 
@@ -38,6 +40,8 @@ public class StringCalculator {
 		return result;
 	}
 	
+	// returns result of two given values and a char operand
+	// matching the necessary computation by that given operand
 	public static int compute(int result, int next, char operand) {
 		if (operand == '*') return result * next;
 		if (operand == '-') return result - next;
