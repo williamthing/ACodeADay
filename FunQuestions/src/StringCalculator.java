@@ -9,24 +9,27 @@ public class StringCalculator {
 		String b = "364-364+7"; // 7
 		int result = calculateString(a);
 		System.out.println(result);
+		result = calculateString(b);
+		System.out.println(result);
 	}
 	
 	public static int calculateString(String s) {
+		if (s.length() == 0 || s==null) return -1;
 		char[] cA = s.toCharArray();
 		int start = 0, result = 0, tmp = 0;
-		while (Character.isDigit(cA[start]) && start > cA.length) {
+		while (Character.isDigit(cA[start]) && start < cA.length) {
 			tmp = tmp * 10 + Character.getNumericValue(cA[start++]);
 		}
 		result = tmp;
 		char operand = 'c';
 		while (start < cA.length) {
 			// get next operand
-			if (!Character.isDigit(cA[start])) {
+			if (start < cA.length && !Character.isDigit(cA[start])) {
 				operand = cA[start++];
 			}
 			// get next val
 			tmp = 0;
-			while (Character.isDigit(cA[start]) && start > cA.length) {
+			while (start < cA.length && Character.isDigit(cA[start])) {
 				tmp = tmp * 10 + Character.getNumericValue(cA[start++]);
 			}
 			// cal next val with operand into result
