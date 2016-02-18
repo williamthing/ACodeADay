@@ -15,6 +15,9 @@ public class StringCalculator {
 		System.out.println(result);
 	}
 	
+	// Takes a given string and calculates the result as if the string 
+	// was an equation does not follow paradigm of PEMDAS, only the 
+	// values first seen from left to right
 	public static int calculateString(String s) {
 		if (s.length() == 0 || s==null) return -1;
 		char[] cA = s.toCharArray();
