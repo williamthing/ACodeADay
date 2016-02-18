@@ -14,7 +14,7 @@ public class StringCalculator {
 		if (s.length()==0 || s==null) return -1*Integer.MAX_VALUE;
 		char[] cA = s.toCharArray();
 		int start = 0, result = 0, tmp = 0;
-		while (Character.isDigit(cA[start]) && start < cA.length) {
+		while (start < cA.length && Character.isDigit(cA[start])) {
 			tmp = tmp * 10 + Character.getNumericValue(cA[start++]);
 		}
 		result = tmp;
@@ -50,10 +50,13 @@ public class StringCalculator {
 	public static void main(String[] arg) {
 		String a = "3+5*7-5";	// 51
 		String b = "364-364+7"; // 7
+		String c = "1+2+3*6"; 	// 36
 		StringCalculator calculator = new StringCalculator();
 		int result = calculator.calculateString(a);
 		System.out.println(result);
 		result = calculator.calculateString(b);
+		System.out.println(result);
+		result = calculator.calculateString(c);
 		System.out.println(result);
 	}
 }
