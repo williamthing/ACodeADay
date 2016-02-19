@@ -13,6 +13,7 @@ public class BubbleSort {
 	}
 	
 	public static void bubbleSort(int[] a) {
+		if (a==null || a.length < 2) return;
 		int n = a.length;
 		boolean swapped = true;
 		while (swapped) {
