@@ -9,9 +9,12 @@
  * 		create a hashtable and iterate over array and keep track
  * 		of frequency of each element, then iterate over map
  * 		and see if there is any element greater than n/2
+ * 		o(n) but uses o(n) space
  * 
  * another solution:
  * 		sort the given array, and then check majority element
+ * 		o(nlogn)
+ * 
  */
 
 public class MajorityElement {
