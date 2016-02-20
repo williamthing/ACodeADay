@@ -1,5 +1,7 @@
 // William Thing
 // Insertion Sort
+// Stable sort, similar to merge sort, unstable
+// sort is quick/heap sort
 
 import java.util.Arrays;
 
