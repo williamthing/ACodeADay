@@ -21,7 +21,6 @@ public class InsertionSort {
 			}
 			a[j+1] = tmp;
 		}
-		
 	}
 		
 	public static void swap(int[] a, int i, int j) {
@@ -29,5 +28,4 @@ public class InsertionSort {
 		a[i] = a[j];
 		a[j] = tmp;
 	}
-
 }
