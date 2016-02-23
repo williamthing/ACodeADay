@@ -15,6 +15,7 @@ public class WiggleSort {
 
 	public static void main(String[] arg) {
 		int[] test = {3, 5, 2, 1, 6, 4};
+		int[] test2 = {1, 2, 3};
 		wiggleSort(test);
 		System.out.println(Arrays.toString(test));
 	}
@@ -24,7 +25,7 @@ public class WiggleSort {
 		if (a.length == 2) {
 			if (a[0] > a[1]) swap(a, 0, 1);
 		}
-		for (int i = 0; i < a.length-2; i++) {
+		for (int i = 0; i < a.length-1; i++) {
 			// even are lower values
 			// odds are the higher values
 			if (i % 2 == 0) {
