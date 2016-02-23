@@ -7,6 +7,11 @@ public class LongestCommonPrefix {
 							"hi",
 							"hicky"};
 		String[] noPrefix = {"jim", "jig", "j", "no"};
+		String result = longestCommonPrefix(prefix);
+		String result2 = longestCommonPrefix(noPrefix);
+		System.out.println(result);
+		System.out.println(result2);
+
 		
 	}
 
