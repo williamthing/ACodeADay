@@ -5,8 +5,9 @@ import java.util.Set;
 
 public class AllPermutationString {
 	public static void main(String[] arg) {
-		String test = "abc";
+		String test = "aabc";
 		Set<String> set = new HashSet<String>();
+		printAllPermutations("", test);
 		printAllPermutations("", test, set);
 		System.out.println(set.toString());
 		
