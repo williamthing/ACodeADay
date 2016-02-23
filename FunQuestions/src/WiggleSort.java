@@ -15,17 +15,22 @@ public class WiggleSort {
 
 	public static void main(String[] arg) {
 		int[] test = {3, 5, 2, 1, 6, 4};
-		
+		wiggleSort(test);
+		System.out.println(Arrays.toString(test));
 	}
 	
 	public static void wiggleSort(int[] a) {
+		if (a == null || a.length < 2) return;
+		if (a.length == 2) {
+			if (a[0] > a[1]) swap(a, 0, 1);
+		}
 		for (int i = 0; i < a.length-2; i++) {
 			// even are lower values
 			// odds are the higher values
 			if (i % 2 == 0) {
 				findMin(a, i+1, a.length-1, i);
 			} else {
-				findMin(a, i+1, a.length-1, i);
+				findMax(a, i+1, a.length-1, i);
 			}
 		}
 	}
@@ -39,8 +44,13 @@ public class WiggleSort {
 		swap(a, index, minIndex);
 	}
 	
-	public static void findMax(int[] a, int start, int end) {
-		
+	public static void findMax(int[] a, int start, int end, int index) {
+		int maxIndex = index;
+		for (int i = start; i <= end; i++) {
+			if (a[maxIndex] < a[i])
+				maxIndex = i;
+		}
+		swap(a, index, maxIndex);
 	}
 	
 	// swap
