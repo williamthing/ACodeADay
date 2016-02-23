@@ -9,6 +9,8 @@ For example, given nums = [3, 5, 2, 1, 6, 4], one possible answer
 is [1, 6, 2, 5, 3, 4].
  */
 
+import java.util.Arrays;
+
 public class WiggleSort {
 
 	public static void main(String[] arg) {
@@ -18,22 +20,33 @@ public class WiggleSort {
 	
 	public static void wiggleSort(int[] a) {
 		for (int i = 0; i < a.length-2; i++) {
-			int tmp = a[i];
 			// even are lower values
 			// odds are the higher values
 			if (i % 2 == 0) {
-				findMin(a, i+1, a.length-1, tmp);
+				findMin(a, i+1, a.length-1, i);
 			} else {
-				findMax(a, i+1, a.length-1, tmp);
+				findMin(a, i+1, a.length-1, i);
 			}
 		}
 	}
 	
-	public static void findMin(int[] a, int start, int end, int val) {
-		
+	public static void findMin(int[] a, int start, int end, int index) {
+		int minIndex = index;
+		for (int i = start; i <= end; i++) {
+			if (a[minIndex] > a[i])
+				minIndex = i;
+		}
+		swap(a, index, minIndex);
 	}
 	
 	public static void findMax(int[] a, int start, int end) {
 		
+	}
+	
+	// swap
+	public static void swap(int[] a, int i, int j) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
 	}
 }
