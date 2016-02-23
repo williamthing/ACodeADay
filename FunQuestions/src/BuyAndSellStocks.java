@@ -4,7 +4,8 @@ public class BuyAndSellStocks {
 	
 	public static void main(String[] arg) {
 		int[] prices = {7, 8, 2, 9, 10, 0, 2, 3, 9, 5};
-		
+		int result = maxProfit(prices);
+		System.out.println(result);
 	}
 	
 	public static int maxProfit(int[] prices) {
