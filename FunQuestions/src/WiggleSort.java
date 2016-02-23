@@ -14,10 +14,21 @@ import java.util.Arrays;
 public class WiggleSort {
 
 	public static void main(String[] arg) {
-		int[] test = {3, 5, 2, 1, 6, 4};
-		int[] test2 = {1, 2, 3};
-		wiggleSort(test);
+		int[] test2 = {3, 5, 2, 1, 6, 4};
+		int[] test = {1, 2};
+		fastWiggleSort(test);
 		System.out.println(Arrays.toString(test));
+	}
+	
+	public static void fastWiggleSort(int[] a) {
+		Arrays.sort(a);
+		if (a.length <= 2)
+			return;
+		for (int i = 0; i < (a.length-1)/2; i++) {
+			int tmp = a[i*2+1];
+			a[i*2+1] = a[i*2+2];
+			a[i*2+2] = tmp;
+		}
 	}
 	
 	public static void wiggleSort(int[] a) {
