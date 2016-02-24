@@ -7,7 +7,7 @@ public class AllPermutationString {
 	public static void main(String[] arg) {
 		String test = "aabc";
 		Set<String> set = new HashSet<String>();
-		printAllPermutations("", test);
+		//printAllPermutations("", test);
 		printAllPermutations("", test, set);
 		System.out.println(set.toString());
 		
