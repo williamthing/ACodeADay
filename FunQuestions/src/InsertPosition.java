@@ -8,7 +8,7 @@ public class InsertPosition {
     	int start = 0;
     	int end = nums.length-1;
     	while (start < end) {
-    		int mid = (end-start)/2 + start;
+    		int mid = (end+start)/2;
     		if (nums[mid] > target) {
     			end = mid-1;
     			if (start > end)
@@ -17,6 +17,8 @@ public class InsertPosition {
     			start = mid+1;
     			if (start > end)
     				return start-1;
+    		} else {
+    			return mid;
     		}
     	}
     	return end+1;
@@ -28,9 +30,8 @@ public class InsertPosition {
     	int[] ans = {2, 1, 4, 0};
     	
     	InsertPosition IP = new InsertPosition();
-    	
+
     	for (int i = 0; i < test.length; i++) {
-    		System.out.println(test[i]);
     		System.out.println(IP.searchInsert(a, test[i]));
     	}
     }
