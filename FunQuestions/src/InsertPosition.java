@@ -11,17 +11,13 @@ public class InsertPosition {
     		int mid = (end+start)/2;
     		if (nums[mid] > target) {
     			end = mid-1;
-    			if (start > end)
-    				return end+1;
     		} else if (nums[mid] < target) {
     			start = mid+1;
-    			if (start > end)
-    				return start;
     		} else {
     			return mid;
     		}
     	}
-    	return end;
+    	return start;
     }
     
     public static void main(String[] arg) {
