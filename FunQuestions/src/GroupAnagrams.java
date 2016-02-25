@@ -43,5 +43,4 @@ public class GroupAnagrams {
 		ga.groupAnagrams(test2);
 		System.out.println(Arrays.toString(test2));
 	}
-
 }
