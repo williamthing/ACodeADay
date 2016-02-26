@@ -12,16 +12,17 @@ at least 3 different ways to solve this problem.
 
 
 public class RotateArray {
-
+	
 	public static void main(String[] arg) {
-		//int[] arr = {1, 2, 3, 4, 5, 6, 7};
-		int[] arr = {1, 2};
-		rotate(arr, 2);
+		int[] arr = {1, 2, 3, 4, 5, 6, 7};
+		//int[] arr = {1, 2};
+		rotate(arr, 4);
 		for (int n : arr) {
 			System.out.print(n);
 		}
 	}
 	
+	/*
     public static void rotate(int[] nums, int k) {
     	if (nums == null || nums.length == 1 || k == 0 || k >= nums.length) return;
     	int i = k, j = 0, tmp;
@@ -34,4 +35,22 @@ public class RotateArray {
         	if (j >= k) j = 0;
         } while (i != k-1);
     }
+    */
+	
+	public static void rotate(int[] a, int rotate) {
+		rotateA(a, rotate, 0, rotate-1);
+	}
+	
+	private static void rotateA(int[] a, int rotate, int start, int end) {
+		if ((end % a.length) != rotate-2) {
+			swap(a, (end % a.length), start % (rotate-1));
+			rotateA(a, rotate, start+1, end+1);
+		}
+	}
+	
+	private static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
 }
