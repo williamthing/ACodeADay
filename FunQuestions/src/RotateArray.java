@@ -38,6 +38,7 @@ public class RotateArray {
     */
 	
 	public static void rotate(int[] a, int rotate) {
+	    if (a == null || a.length == 0 || rotate == 0 || rotate > a.length) return;
 		rotateA(a, rotate, 0, rotate-1);
 	}
 	
